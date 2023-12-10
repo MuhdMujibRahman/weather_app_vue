@@ -134,7 +134,7 @@ import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
-const weatherAppAPIKey = "beff98e1fede7a54bd1f107174d97d07";
+const weatherAppAPIKey = import.meta.env.VUE_APP_WEATHER_API_KEY;
 
 const removeCity = () => {
     const cities = JSON.parse(localStorage.getItem('savedCities'));

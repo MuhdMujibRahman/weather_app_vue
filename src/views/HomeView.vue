@@ -40,7 +40,7 @@ import CityList from '@/components/CityList.vue';
 import CityCardSkeleton from '@/components/CityCardSkeleton.vue';
 
 const router = useRouter();
-const mapboxAPIKey = "pk.eyJ1IjoibXVqaWJuaXphciIsImEiOiJjbHB6M21wbWIweWNpMmtxdmxkeHVnMXpkIn0.8Zzmog6-1P-kDodukx5rPw";
+const mapboxAPIKey = import.meta.env.VUE_APP_MAP_API_KEY;
 const searcQuery = ref("");
 const queryTimeout = ref(null);
 const mapboxSearchResult = ref(null);

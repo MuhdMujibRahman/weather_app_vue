@@ -21,7 +21,7 @@ import router from '@/router';
 
 
 const savedCities = ref([]);
-const weatherAppAPIKey = process.env.VUE_APP_WEATHER_API_KEY
+const weatherAppAPIKey = import.meta.env.VUE_APP_WEATHER_API_KEY
 const getCities = async () => {
     if(localStorage.getItem("savedCities")){
         savedCities.value = JSON.parse(
