@@ -18,8 +18,10 @@ import CityCard from "@/components/CityCard.vue";
 import { routeLocationKey, useRouter } from 'vue-router';
 import router from '@/router';
 
+
+
 const savedCities = ref([]);
-const weatherAppAPIKey = "beff98e1fede7a54bd1f107174d97d07";
+const weatherAppAPIKey = process.env.VUE_APP_WEATHER_API_KEY
 const getCities = async () => {
     if(localStorage.getItem("savedCities")){
         savedCities.value = JSON.parse(
