@@ -21,7 +21,6 @@ import router from '@/router';
 
 
 const savedCities = ref([]);
-const weatherAppAPIKey = import.meta.env.VUE_APP_WEATHER_API_KEY
 const getCities = async () => {
     if(localStorage.getItem("savedCities")){
         savedCities.value = JSON.parse(
@@ -31,7 +30,7 @@ const getCities = async () => {
         const requests = [];
         savedCities.value.forEach((city) => {
             requests.push(
-                axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${city.coords.lat}&lon=${city.coords.lng}&appid=${weatherAppAPIKey}&units=metric`)
+                axios.get(`/api/weather?lat=${city.coords.lat}&lon=${city.coords.lng}&units=metric`)
             );
         });
 

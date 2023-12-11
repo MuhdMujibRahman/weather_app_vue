@@ -40,7 +40,6 @@ import CityList from '@/components/CityList.vue';
 import CityCardSkeleton from '@/components/CityCardSkeleton.vue';
 
 const router = useRouter();
-const mapboxAPIKey = import.meta.env.VUE_APP_MAP_API_KEY;
 const searcQuery = ref("");
 const queryTimeout = ref(null);
 const mapboxSearchResult = ref(null);
@@ -67,7 +66,7 @@ const getSearchResult = () => {
   queryTimeout.value = setTimeout(async () => {
     if(searcQuery.value !== '') {
         try {
-          const result = await axios.get(`https://api.mapbox.com/geocoding/v5/mapbox.places/${searcQuery.value}.json?access_token=${mapboxAPIKey}&tpyes=places`);
+          const result = await axios.get(`/api/mapbox?places=${searcQuery.value}&access_token=123&tpyes=places`);
           mapboxSearchResult.value = result.data.features;
           console.log(mapboxSearchResult.value)
         } catch {

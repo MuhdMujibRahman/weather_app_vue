@@ -134,7 +134,6 @@ import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
 const router = useRouter();
-const weatherAppAPIKey = import.meta.env.VUE_APP_WEATHER_API_KEY;
 
 const removeCity = () => {
     const cities = JSON.parse(localStorage.getItem('savedCities'));
@@ -152,7 +151,7 @@ const removeCity = () => {
 const getWeatherData = async () => {
 
     try {
-        const weatherData = await axios.get(`https://api.openweathermap.org/data/2.5/onecall?lat=${route.query.lat}&lon=${route.query.lng}&appid=${weatherAppAPIKey}&units=metric`);
+        const weatherData = await axios.get(`/api/weather/onecall?lat=${route.query.lat}&lon=${route.query.lng}&units=metric`);
         // cal current date & time
         const localOffset = new Date().getTimezoneOffset() * 60000;
         const utc = weatherData.data.current.dt * 1000 + localOffset;
